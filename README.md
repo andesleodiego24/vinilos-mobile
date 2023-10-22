@@ -6,3 +6,7 @@ Hemos sido contratados por la empresa The Software Design Company (TSDC) para cr
 - [Incepción](https://github.com/andesleodiego24/vinilos-mobile/wiki/Inception)
 - [Diseño](https://www.figma.com/file/GOeTqTABwuqAT7UIBKJXLV/Vinilos?type=design&node-id=0-1&mode=design)
 - [Tablero Kanban](https://github.com/users/andesleodiego24/projects/1)
+
+## Backend
+- [Generalidades](https://misw-4104-web.github.io/GuiasProyecto/generalidades.html#documentaci%C3%B3n-del-api)
+- [Código](https://github.com/TheSoftwareDesignLab/BackVynils/blob/master/README.md#description)
