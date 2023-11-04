@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Vinilos</string>
+    <string name="drawer_title">Menu</string>
+    <string name="drawer_albums">Albumes</string>
+    <string name="drawer_artists">Artistas</string>
+    <string name="drawer_collectors">Coleccionistas</string>
+</resources>
