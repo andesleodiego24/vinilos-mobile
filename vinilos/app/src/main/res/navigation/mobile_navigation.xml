@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_albums">
+
+    <fragment
+        android:id="@+id/nav_albums"
+        android:name="com.example.drawerapp.ui.AlbumFragment"
+        android:label="@string/menu_albums"
+        tools:layout="@layout/fragment_album" />
+
+    <fragment
+        android:id="@+id/nav_artists"
+        android:name="com.example.drawerapp.ui.ArtistFragment"
+        android:label="@string/menu_artists"
+        tools:layout="@layout/fragment_artist" />
+
+    <fragment
+        android:id="@+id/nav_collectors"
+        android:name="com.example.drawerapp.ui.CollectorFragment"
+        android:label="@string/menu_collectors"
+        tools:layout="@layout/fragment_collector" />
+</navigation>
