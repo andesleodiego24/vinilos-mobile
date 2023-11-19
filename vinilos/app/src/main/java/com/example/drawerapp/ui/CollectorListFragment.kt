@@ -10,31 +10,30 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.drawerapp.databinding.FragmentAlbumBinding
-import com.example.drawerapp.models.Album
-import com.example.drawerapp.R
-import com.example.drawerapp.ui.adapaters.AlbumAdapter
-import com.example.drawerapp.viewmodels.AlbumViewModel
+import com.example.drawerapp.databinding.FragmentCollectorBinding
+import com.example.drawerapp.models.Collector
+import com.example.drawerapp.ui.adapaters.CollectorListAdapter
+import com.example.drawerapp.viewmodels.CollectorListViewModel
 
-class AlbumFragment : Fragment() {
-    private var _binding: FragmentAlbumBinding? = null
+class CollectorListFragment : Fragment() {
+    private var _binding: FragmentCollectorBinding? = null
     private val binding get() = _binding!!
     private lateinit var recyclerView: RecyclerView
-    private lateinit var viewModel: AlbumViewModel
-    private var viewModelAdapter: AlbumAdapter? = null
+    private lateinit var viewModel: CollectorListViewModel
+    private var viewModelAdapter: CollectorListAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentAlbumBinding.inflate(inflater, container, false)
+        _binding = FragmentCollectorBinding.inflate(inflater, container, false)
         val view = binding.root
-        viewModelAdapter = AlbumAdapter()
+        viewModelAdapter = CollectorListAdapter()
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        recyclerView = binding.rvAlbumList
+        recyclerView = binding.rvCollectorList
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = viewModelAdapter
     }
@@ -45,10 +44,11 @@ class AlbumFragment : Fragment() {
             "You can only access the viewModel after onActivityCreated()"
         }
 
-        viewModel = ViewModelProvider(this, AlbumViewModel.Factory(activity.application)).get(AlbumViewModel::class.java)
-        viewModel.albums.observe(viewLifecycleOwner, Observer<List<Album>> {
+        viewModel = ViewModelProvider(this, CollectorListViewModel.Factory(activity.application)).get(
+            CollectorListViewModel::class.java)
+        viewModel.artists.observe(viewLifecycleOwner, Observer<List<Collector>> {
             it.apply {
-                viewModelAdapter!!.albums = this
+                viewModelAdapter!!.collectors = this
             }
         })
         viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer<Boolean> { isNetworkError ->

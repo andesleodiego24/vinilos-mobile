@@ -6,10 +6,16 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import com.example.drawerapp.models.Artist
-import com.example.drawerapp.network.NetworkServiceAdapter
+import com.example.drawerapp.repositories.ArtistRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.lang.Exception
 
-class ArtistViewModel(application: Application) : AndroidViewModel(application) {
+class ArtistListViewModel(application: Application) : AndroidViewModel(application) {
+    private var artistRepository = ArtistRepository(application)
 
     private val _artists = MutableLiveData<List<Artist>>()
     val artists: LiveData<List<Artist>>
@@ -28,13 +34,18 @@ class ArtistViewModel(application: Application) : AndroidViewModel(application) 
     }
 
     private fun refreshDataFromNetwork() {
-        NetworkServiceAdapter.getInstance(getApplication()).getArtists({
-            _artists.postValue(it)
+        try {
+            viewModelScope.launch(Dispatchers.Default) {
+                withContext(Dispatchers.IO) {
+                    var data = artistRepository.refreshData()
+                    _artists.postValue(data)
+                }
+            }
             _eventNetworkError.value = false
             _isNetworkErrorShown.value = false
-        },{
+        } catch (e: Exception) {
             _eventNetworkError.value = true
-        })
+        }
     }
 
     fun onNetworkErrorShown() {
@@ -43,9 +54,9 @@ class ArtistViewModel(application: Application) : AndroidViewModel(application) 
 
     class Factory(val app: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(ArtistViewModel::class.java)) {
+            if (modelClass.isAssignableFrom(ArtistListViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
-                return ArtistViewModel(app) as T
+                return ArtistListViewModel(app) as T
             }
             throw IllegalArgumentException("Unable to construct viewmodel")
         }

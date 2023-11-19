@@ -28,18 +28,12 @@
                 android:padding="12dp"
                 android:background="@color/gray">
 
-                <ImageView
-                    android:layout_width="56dp"
-                    android:layout_height="56dp"
-                    android:contentDescription="@{collector.name}"
-                    android:src="@mipmap/ic_launcher"
-                    android:layout_marginEnd="12dp" />
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_weight="1">
 
                     <TextView
                         android:layout_width="match_parent"

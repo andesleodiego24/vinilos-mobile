@@ -4,12 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.drawerapp.R
 import com.example.drawerapp.databinding.CollectorItemBinding
 import com.example.drawerapp.models.Collector
+import com.example.drawerapp.ui.CollectorListFragmentDirections
 
-class CollectorAdapter: RecyclerView.Adapter<CollectorAdapter.CollectorViewHolder>() {
+class CollectorListAdapter: RecyclerView.Adapter<CollectorListAdapter.CollectorViewHolder>() {
     var collectors :List<Collector> = emptyList()
         set(value) {
             field = value
@@ -29,12 +31,20 @@ class CollectorAdapter: RecyclerView.Adapter<CollectorAdapter.CollectorViewHolde
         holder.viewDataBinding.also {
             it.collector = collectors[position]
         }
+        holder.viewDataBinding.root.setOnClickListener {
+            val action = CollectorListFragmentDirections.openCollectorDetails(
+                collectorName = collectors[position].name,
+                collectorEmail = collectors[position].email,
+                collectorPhone = collectors[position].telephone
+            )
+
+            holder.viewDataBinding.root.findNavController().navigate(action)
+        }
     }
 
     override fun getItemCount(): Int {
         return collectors.size
     }
-
 
     class CollectorViewHolder(val viewDataBinding: CollectorItemBinding) :
         RecyclerView.ViewHolder(viewDataBinding.root) {
