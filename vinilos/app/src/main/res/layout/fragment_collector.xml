@@ -1,17 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.CollectorFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.CollectorListFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_collector_list"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/collector_item"
-        android:paddingHorizontal="24dp"
-        android:paddingTop="12dp"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.widget.SearchView
+            android:id="@+id/searchCollector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:queryHint="Buscar..."
+            app:iconifiedByDefault="true"
+            android:layout_marginVertical="12dp"
+            android:layout_marginHorizontal="24dp"
+            android:background="@color/gray"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_collector_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/collector_item"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="12dp"/>
+    </LinearLayout>
 
 </FrameLayout>

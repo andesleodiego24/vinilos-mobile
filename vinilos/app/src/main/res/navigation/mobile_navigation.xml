@@ -3,23 +3,89 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_albums">
+    app:startDestination="@+id/albums_list">
 
     <fragment
-        android:id="@+id/nav_albums"
-        android:name="com.example.drawerapp.ui.AlbumFragment"
+        android:id="@+id/albums_list"
+        android:name="com.example.drawerapp.ui.AlbumListFragment"
         android:label="@string/menu_albums"
-        tools:layout="@layout/fragment_album" />
+        tools:layout="@layout/fragment_album" >
+        <action
+            android:id="@+id/open_album_details"
+            app:destination="@id/album_details" />
+    </fragment>
 
     <fragment
-        android:id="@+id/nav_artists"
-        android:name="com.example.drawerapp.ui.ArtistFragment"
+        android:id="@+id/album_details"
+        android:name="com.example.drawerapp.ui.AlbumDetailsFragment"
+        tools:layout="@layout/fragment_album_details">
+        <argument
+            android:name="album_name"
+            app:argType="string"/>
+        <argument
+            android:name="album_label"
+            app:argType="string"/>
+        <argument
+            android:name="album_cover"
+            app:argType="string"/>
+        <argument
+            android:name="album_performers"
+            app:argType="string"/>
+        <argument
+            android:name="album_relesea_date"
+            app:argType="string"/>
+        <argument
+            android:name="album_description"
+            app:argType="string"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/artists_list"
+        android:name="com.example.drawerapp.ui.ArtistListFragment"
         android:label="@string/menu_artists"
-        tools:layout="@layout/fragment_artist" />
+        tools:layout="@layout/fragment_artist">
+        <action
+            android:id="@+id/open_artist_details"
+            app:destination="@id/artist_details" />
+    </fragment>
 
     <fragment
-        android:id="@+id/nav_collectors"
-        android:name="com.example.drawerapp.ui.CollectorFragment"
+        android:id="@+id/artist_details"
+        android:name="com.example.drawerapp.ui.ArtistDetailsFragment"
+        tools:layout="@layout/fragment_artist_details">
+        <argument
+            android:name="artist_name"
+            app:argType="string"/>
+        <argument
+            android:name="artist_image"
+            app:argType="string"/>
+        <argument
+            android:name="artist_description"
+            app:argType="string"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/collectors_list"
+        android:name="com.example.drawerapp.ui.CollectorListFragment"
         android:label="@string/menu_collectors"
-        tools:layout="@layout/fragment_collector" />
+        tools:layout="@layout/fragment_collector">
+        <action
+            android:id="@+id/open_collector_details"
+            app:destination="@id/collector_details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/collector_details"
+        android:name="com.example.drawerapp.ui.CollectorDetailsFragment"
+        tools:layout="@layout/fragment_collector_details">
+        <argument
+            android:name="collector_name"
+            app:argType="string"/>
+        <argument
+            android:name="collector_email"
+            app:argType="string"/>
+        <argument
+            android:name="collector_phone"
+            app:argType="string"/>
+    </fragment>
 </navigation>

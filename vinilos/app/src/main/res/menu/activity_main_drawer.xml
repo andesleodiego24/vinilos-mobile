@@ -5,13 +5,13 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_albums"
+            android:id="@+id/albums_list"
             android:title="@string/menu_albums" />
         <item
-            android:id="@+id/nav_artists"
+            android:id="@+id/artists_list"
             android:title="@string/menu_artists" />
         <item
-            android:id="@+id/nav_collectors"
+            android:id="@+id/collectors_list"
             android:title="@string/menu_collectors" />
     </group>
 </menu>
