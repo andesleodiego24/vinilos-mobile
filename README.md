@@ -18,6 +18,7 @@ En caso de contar con cualquiera de las dos, los pasos para ejecutar la aplicaci
 - Abrir el proyecto en Android Studio.
 - Realizar un Build de la aplicacion, en caso de no tener alguna libreria instalada tomara un tiempo adicional en descargarla para complilar la aplicacion
 - Asegurarse que se encuentra seleccionado el app en la seccion de configuracion que se encuentra en la parte superior del IDE
+   <br/>
   ![image](https://github.com/andesleodiego24/vinilos-mobile/assets/124963914/4c4e27f8-5d42-46bd-884e-e8439d0a8922)
 - Seleccionar el dispositivo que se desea utilizar
   <br/>
