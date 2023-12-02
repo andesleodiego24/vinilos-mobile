@@ -46,7 +46,7 @@ class AlbumDetailsFragment : Fragment() {
 
         albumName.text = args.albumName
         albumLabel.text = args.albumLabel.uppercase()
-        Glide.with(this)
+        Glide.with(activity.application.applicationContext)
             .load(args.albumCover.toUri().buildUpon().scheme("https").build())
             .apply(
                 RequestOptions()

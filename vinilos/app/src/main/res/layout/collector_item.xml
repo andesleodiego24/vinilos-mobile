@@ -54,6 +54,15 @@
 
                 </LinearLayout>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@{collector.albumsCount}"
+                    android:textColor="@color/primary"
+                    android:textSize="12sp"
+                    android:layout_weight="0"/>
+
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>

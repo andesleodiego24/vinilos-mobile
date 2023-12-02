@@ -4,5 +4,6 @@ data class Collector (
     val id: String,
     val name: String,
     val telephone: String,
-    val email: String
+    val email: String,
+    val albumsCount: String
 )

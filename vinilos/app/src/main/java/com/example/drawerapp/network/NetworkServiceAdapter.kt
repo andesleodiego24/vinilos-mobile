@@ -102,8 +102,10 @@ class NetworkServiceAdapter constructor(context: Context) {
                 val list = mutableListOf<Collector>()
                 for (i in 0 until resp.length()) {
                     val item = resp.getJSONObject(i)
+                    val albumsCount = item.getJSONArray("collectorAlbums").length()
                     val collector = Collector(id =  item.getString("id"), name = item.getString("name"),
-                        telephone = item.getString("telephone"), email = item.getString("email"))
+                        telephone = item.getString("telephone"), email = item.getString("email"),
+                        albumsCount = "$albumsCount Albumes")
                     list.add(i, collector)
                 }
                 cont.resume(list)
