@@ -30,6 +30,7 @@ En caso de contar con cualquiera de las dos, los pasos para ejecutar la aplicaci
 ![image](https://github.com/andesleodiego24/vinilos-mobile/assets/124963914/3a21e6c3-fe37-4c8e-af8e-a57fac9b9bc2)
 ## Escenarios de pruebas con Espresso
 En la ruta "com.example.drawerapp" se encuentran los escenarios de prueba, para ejecutarlos solo de click sobre cada uno de ellos como se muestra en la imagen
+  <br/>
 ![image](https://github.com/andesleodiego24/vinilos-mobile/assets/79039742/9aa7cad7-b30b-4683-b912-c8cd8bb4540c)
 
 
