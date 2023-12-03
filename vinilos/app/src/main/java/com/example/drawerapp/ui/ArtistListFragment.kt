@@ -25,7 +25,7 @@ class ArtistListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentArtistBinding.inflate(inflater, container, false)
         val view = binding.root
         viewModelAdapter = ArtistListAdapter()
@@ -44,16 +44,15 @@ class ArtistListFragment : Fragment() {
             "You can only access the viewModel after onActivityCreated()"
         }
 
-        viewModel = ViewModelProvider(this, ArtistListViewModel.Factory(activity.application)).get(
-            ArtistListViewModel::class.java)
-        viewModel.artists.observe(viewLifecycleOwner, Observer<List<Artist>> {
+        viewModel = ViewModelProvider(this, ArtistListViewModel.Factory(activity.application))[ArtistListViewModel::class.java]
+        viewModel.artists.observe(viewLifecycleOwner) {
             it.apply {
                 viewModelAdapter!!.artists = this
             }
-        })
-        viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer<Boolean> { isNetworkError ->
+        }
+        viewModel.eventNetworkError.observe(viewLifecycleOwner) { isNetworkError ->
             if (isNetworkError) onNetworkError()
-        })
+        }
     }
     override fun onDestroyView() {
         super.onDestroyView()

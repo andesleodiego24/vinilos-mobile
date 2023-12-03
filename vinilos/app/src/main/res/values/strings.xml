@@ -9,4 +9,15 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="menu_title">Menu</string>
     <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam purus sapien, facilisis sit amet pharetra non, varius vitae dolor.</string>
+    <string name="album_cover">Album cover</string>
+    <string name="label_records_placeholder">LABEL RECORDS</string>
+    <string name="album_name_label">Album</string>
+    <string name="album_artist_placeholder">Joh Doe</string>
+    <string name="album_year_placeholder">2023</string>
+    <string name="collector_phone_placeholder">+57 1 310 555 5555</string>
+    <string name="coleccionista_placeholder">Coleccionista</string>
+    <string name="email_icon_description">Email icon</string>
+    <string name="phone_icon_description">phone_icon</string>
+    <string name="artista_placeholder">Artista</string>
+    <string name="artist_picture_description">Artist picture</string>
 </resources>

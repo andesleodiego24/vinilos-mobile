@@ -61,7 +61,7 @@ class NetworkServiceAdapter constructor(context: Context) {
         ))
     }
 
-    suspend fun getAlbumById(albumId: String) = suspendCoroutine<Album> { cont ->
+    suspend fun getAlbumById(albumId: String) = suspendCoroutine { cont ->
         requestQueue.add(getRequest("albums/$albumId",
             {response ->
                 val resp = JSONObject(response)

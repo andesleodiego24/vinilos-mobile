@@ -52,7 +52,4 @@ class ArtistDetailsFragment : Fragment() {
         artistDescription.text = args.artistDescription
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-    }
 }

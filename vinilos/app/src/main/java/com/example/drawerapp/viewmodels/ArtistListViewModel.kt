@@ -21,11 +21,11 @@ class ArtistListViewModel(application: Application) : AndroidViewModel(applicati
     val artists: LiveData<List<Artist>>
         get() = _artists
 
-    private var _eventNetworkError = MutableLiveData<Boolean>(false)
+    private var _eventNetworkError = MutableLiveData(false)
     val eventNetworkError: LiveData<Boolean>
         get() = _eventNetworkError
 
-    private var _isNetworkErrorShown = MutableLiveData<Boolean>(false)
+    private var _isNetworkErrorShown = MutableLiveData(false)
     val isNetworkErrorShown: LiveData<Boolean>
         get() = _isNetworkErrorShown
 
@@ -37,7 +37,7 @@ class ArtistListViewModel(application: Application) : AndroidViewModel(applicati
         try {
             viewModelScope.launch(Dispatchers.Default) {
                 withContext(Dispatchers.IO) {
-                    var data = artistRepository.refreshData()
+                    val data = artistRepository.refreshData()
                     _artists.postValue(data)
                 }
             }
