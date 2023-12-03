@@ -40,7 +40,4 @@ class CollectorDetailsFragment : Fragment() {
         collectorPhone.text = args.collectorPhone
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-    }
 }

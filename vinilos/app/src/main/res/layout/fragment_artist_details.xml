@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".ui.AlbumDetailsFragment"
     android:paddingVertical="12dp"
-    android:paddingHorizontal="24dp"  >
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+    android:paddingHorizontal="24dp"
+    android:orientation="vertical" >
 
         <TextView
             android:id="@+id/artist_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
-            android:text="Artista"
+            android:text="@string/artista_placeholder"
             android:textColor="@color/text"
             android:textSize="24sp" />
 
@@ -29,7 +25,7 @@
             android:adjustViewBounds="false"
             android:cropToPadding="false"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_broken_image"
+            android:contentDescription="@string/artist_picture_description"
             android:visibility="visible"
             android:layout_marginBottom="8dp"/>
 
@@ -40,6 +36,4 @@
             android:text="@string/lorem"
             android:textSize="16sp"/>
 
-    </LinearLayout>
-
-</FrameLayout>
+</LinearLayout>

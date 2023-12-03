@@ -1,6 +1,7 @@
 package com.example.drawerapp.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,8 +27,7 @@ class AlbumDetailsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+    ): View? {// Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_album_details, container, false)
     }
 
@@ -54,12 +54,9 @@ class AlbumDetailsFragment : Fragment() {
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .error(R.drawable.ic_broken_image))
             .into(albumCover)
+        Log.d("ALBUM DETAILS", "Album cover: ${args.albumCover}")
         albumPerformers.text = args.albumPerformers
         albumYear.text = args.albumReleseaDate.take(4)
         albumDescription.text = args.albumDescription
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
     }
 }
